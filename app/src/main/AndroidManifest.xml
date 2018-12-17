@@ -28,7 +28,9 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/MovieDetail" />
         <activity android:name=".screen.searchfilter.SearchFilterActivity" />
-        <activity android:name=".screen.main.MainActivity" />
+        <activity
+            android:name=".screen.main.MainActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

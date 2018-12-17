@@ -30,7 +30,7 @@ import vunt.com.vn.moviedb_28.screen.trailers.TrailerAdapter;
 import vunt.com.vn.moviedb_28.util.StringUtils;
 
 public class BindingUtils {
-    private static final int IMAGE_SIZE_200 = 200;
+    private static final int IMAGE_SIZE_200 = 1280;
 
     @BindingAdapter({"app:bindMovies"})
     public static void setMoviesForRecyclerView(RecyclerView recyclerView,
@@ -68,11 +68,15 @@ public class BindingUtils {
     @BindingAdapter("imageUrl")
     public static void setImage(ImageView imageView, String url) {
         if (url == null || url.isEmpty()) {
-            return;
+            imageView.setImageResource(R.drawable.ic_loading);
         }
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.drawable.ic_loading);
+        requestOptions.error(R.drawable.ic_loading);
         String imageLink = StringUtils.getImageLink(IMAGE_SIZE_200, url);
         Glide.with(imageView.getContext())
                 .load(imageLink)
+                .apply(requestOptions)
                 .into(imageView);
     }
 
@@ -83,15 +87,14 @@ public class BindingUtils {
         }
     }
 
-    @BindingAdapter("bindImage")
+    @BindingAdapter("app:bindImage")
     public static void setRoundedImage(ImageView imageView, String url) {
         if (url == null || url.isEmpty()) {
             imageView.setImageResource(R.drawable.ic_my_music);
-            return;
         }
         String imageLink = StringUtils.getImageLink(IMAGE_SIZE_200, url);
         RequestOptions requestOptions = new RequestOptions();
-        requestOptions.placeholder(R.drawable.ic_my_music);
+        requestOptions.placeholder(R.drawable.ic_loading);
         requestOptions.error(R.drawable.ic_my_music);
         Glide.with(imageView.getContext())
                 .load(imageLink)

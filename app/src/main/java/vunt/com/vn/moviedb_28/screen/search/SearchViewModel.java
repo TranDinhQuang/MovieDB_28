@@ -64,6 +64,9 @@ public class SearchViewModel extends BaseObservable {
             handleError(null);
             return;
         }
+        if (mCurrentPage == Constant.INDEX_UNIT) {
+            isLoadingSuccess.set(false);
+        }
         Disposable disposable = mMovieRepository.searchMovie(mSearchType, mKey, mCurrentPage)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

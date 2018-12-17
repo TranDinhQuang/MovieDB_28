@@ -24,7 +24,7 @@
                 android:layout_width="@dimen/dp_170"
                 android:layout_height="@dimen/dp_100"
                 android:padding="@dimen/dp_16"
-                android:src="@drawable/ic_play_circle"
+                android:src="@drawable/ic_loading"
                 app:imageUrl="@{viewModel.companyObservable.logoPath}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

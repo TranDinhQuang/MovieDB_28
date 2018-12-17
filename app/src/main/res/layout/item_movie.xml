@@ -12,8 +12,10 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_4"
-        android:layout_marginEnd="@dimen/dp_4">
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_4"
+        android:background="@android:color/transparent"
+        app:cardElevation="0dp">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -23,11 +25,12 @@
 
             <ImageView
                 android:id="@+id/image_movie"
-                android:layout_width="@dimen/dp_160"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_90"
+                app:layout_constraintDimensionRatio="5:3"
                 android:background="@color/color_brighter_black"
-                android:scaleType='@{viewModel.mMovieObservableField.backdropPath == null ? "centerCrop" : "" }'
-                android:src="@drawable/ic_play_circle"
+                android:src="@drawable/ic_loading"
+                android:scaleType="center"
                 app:imageUrl="@{viewModel.mMovieObservableField.backdropPath}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -37,13 +40,12 @@
                 android:id="@+id/text_movie_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginStart="@dimen/dp_10"
                 android:layout_marginEnd="@dimen/dp_16"
                 android:gravity="center_vertical"
                 android:text="@{viewModel.mMovieObservableField.title ?? @string/movie_name}"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/dp_12"
-                android:textStyle="bold"
+                android:textSize="@dimen/dp_14"
                 app:layout_constraintBottom_toTopOf="@id/rating_bar"
                 app:layout_constraintEnd_toStartOf="@id/image_delete_favorities"
                 app:layout_constraintStart_toEndOf="@id/image_movie"

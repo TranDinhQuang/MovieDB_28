@@ -32,6 +32,8 @@
             android:layout_height="@dimen/dp_30"
             android:onClick="@{() -> viewModel.back()}"
             android:paddingStart="@dimen/dp_16"
+            android:paddingTop="@dimen/dp_4"
+            android:paddingBottom="@dimen/dp_4"
             android:src="@drawable/ic_arrow_down_white" />
 
         <fragment
